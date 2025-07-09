@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Proxy Browser</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+    input, button { padding: 10px; margin: 10px; width: 300px; }
+    iframe { width: 90%; height: 80vh; border: 1px solid #ccc; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Browse via Web Proxy</h1>
+  <input type="text" id="urlInput" placeholder="https://example.com">
+  <br>
+  <button onclick="openProxy()">Open Site</button>
+  <br>
+  <iframe id="viewer"></iframe>
+
+  <script>
+    function openProxy() {
+      const url = document.getElementById("urlInput").value;
+      const viewer = document.getElementById("viewer");
+      viewer.src = "/proxy?url=" + encodeURIComponent(url);
+    }
+  </script>
+</body>
+</html>
